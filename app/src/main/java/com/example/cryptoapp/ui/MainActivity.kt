@@ -3,6 +3,7 @@ package com.example.cryptoapp.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,7 +34,12 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 Status.ERROR -> {
-
+                    Toast.makeText(
+                        this,
+                        "Something Went Wrong Please try Again",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    stopShimmer()
                 }
                 Status.LOADING -> {
 
@@ -65,6 +71,7 @@ class MainActivity : AppCompatActivity() {
     private fun setUpAdapter(res: CryptoResponse) {
         binding.marketRev.visibility = View.VISIBLE
         binding.marketRev.adapter = CryptoRecyclerAdapter(res.markets)
-        binding.marketRev.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.marketRev.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 }

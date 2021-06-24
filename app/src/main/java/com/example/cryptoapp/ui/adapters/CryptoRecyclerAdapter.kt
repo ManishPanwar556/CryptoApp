@@ -11,7 +11,7 @@ import com.example.cryptoapp.R
 import com.example.cryptoapp.databinding.ViewHolderCryptoMarketItemBinding
 import com.example.cryptoapp.network.response.get.Market
 
-const val TAG="ADAPTER"
+
 class CryptoRecyclerAdapter(val list:List<Market>):RecyclerView.Adapter<CryptoRecyclerAdapter.CryptoViewHolder>() {
     inner  class CryptoViewHolder(val binding:ViewHolderCryptoMarketItemBinding):RecyclerView.ViewHolder(binding.root){
 
@@ -26,9 +26,6 @@ class CryptoRecyclerAdapter(val list:List<Market>):RecyclerView.Adapter<CryptoRe
         val binding=holder.binding
         binding.currencyName.text=list[position].symbol
         binding.cryptoPrice.text="${list[position].price}"
-        Log.e(TAG,"Price ${list[position].priceUnconverted}")
-        Log.e(TAG,"Percent ${list[position].change24h}")
-        Log.e(TAG,"volume ${list[position].volume24h}")
         if(list[position].change24h<0){
 //            the price decreased
             binding.cryptoPercent.setTextColor(Color.RED)
