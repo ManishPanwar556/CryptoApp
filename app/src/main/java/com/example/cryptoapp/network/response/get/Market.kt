@@ -5,13 +5,13 @@ import com.squareup.moshi.Json
 
 data class Market(
     @Json(name="change_24h")
-    val change24h: Float,
+    val change_24h: Float,
     @Json(name = "exchange_id")
     val exchangeId: String,
     @Json(name = "price")
     val price: Double,
     @Json(name = "price_unconverted")
-    val priceUnconverted: Double,
+    val price_unconverted: Double,
     @Json(name = "spread")
     val spread: Double,
     @Json(name = "status")

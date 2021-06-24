@@ -26,15 +26,15 @@ class CryptoRecyclerAdapter(val list:List<Market>):RecyclerView.Adapter<CryptoRe
         val binding=holder.binding
         binding.currencyName.text=list[position].symbol
         binding.cryptoPrice.text="${list[position].price}"
-        if(list[position].change24h<0){
+        if(list[position].change_24h<0){
 //            the price decreased
             binding.cryptoPercent.setTextColor(Color.RED)
-            binding.cryptoPercent.text="${list[position].change24h}"
+            binding.cryptoPercent.text="${list[position].change_24h}"
             Glide.with(holder.itemView).load(R.drawable.arrow_down).into(binding.arrowImage)
         }
         else{
             binding.cryptoPercent.setTextColor(Color.GREEN)
-            binding.cryptoPercent.text="${list[position].change24h}"
+            binding.cryptoPercent.text="${list[position].change_24h}"
             Glide.with(holder.itemView).load(R.drawable.arrow_up).into(binding.arrowImage)
         }
     }
